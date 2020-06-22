@@ -60,14 +60,10 @@ async function processTransaction(txData) {
     } else {
         return;
     }
-    
+
     T.post('statuses/update', { status: formatedTX }, function(err, data, response) {
         if (err) {console.log(err)}
     })
-}
-
-function postToTwitter(message) {
-    return;
 }
 
 init();
