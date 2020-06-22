@@ -7,7 +7,6 @@ const tbtcAddress = '0x1bBE271d15Bb64dF0bc6CD28Df9Ff322F2eBD847';
 
 const address0 = '0x0000000000000000000000000000000000000000';
 const explorerURL = 'https://etherscan.io/tx/';
-
 const providerURL = `wss://mainnet.infura.io/ws/v3/${process.env.INFURA_ID}`;
 
 const WSConfig = {
@@ -32,20 +31,25 @@ const T = new Twit(twitterConfig);
 
 const tbtcContract = new web3.eth.Contract(tbtcABI, tbtcAddress);
 
-async function init() {
+const txQueue = [];
+
+function init() {
+    let intervalID = setInterval(processTxQueue, 1000);
     tbtcContract.events.Transfer()
         .on('connected', () => {
             console.log('Connected to Ethereum Blockchain!');
         })
         .on('data', (data) => {
-            processTransaction(data);
+            txQueue.push(data);
         })
         .on('error', (error) => {
             console.log(error);
         })
 }
 
-async function processTransaction(txData) {
+function processTxQueue() {
+    if (!txQueue.length) return;
+    let txData = txQueue.shift();
     let formatedTX;
     let txURL = `${explorerURL}${txData.transactionHash}`;
     let {from, to, value} = txData.returnValues;
@@ -63,6 +67,7 @@ async function processTransaction(txData) {
     T.post('statuses/update', { status: formatedTX }, function(err, data, response) {
         if (err) {console.log(err)}
     })
+
 }
 
 init();
