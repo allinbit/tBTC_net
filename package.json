@@ -1,0 +1,16 @@
+{
+  "name": "tbtc_net",
+  "version": "1.0.0",
+  "description": "tBTC Network Scanner",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "All in Bit",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "twit": "^2.2.11",
+    "web3": "^1.2.9"
+  }
+}
