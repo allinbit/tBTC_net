@@ -56,9 +56,9 @@ function processTxQueue() {
 
     if (from === address0 && value.includes('99')) {
         value = Number(value).toFixed(value.length - 6);
-        formatedTX = `${value} #tBTC has been minted! 💎\n ${txURL}`;
+        formatedTX = `🚨 ${value} #tBTC has been minted! 💎\n ${txURL}`;
     } else if (to === address0) {
-        formatedTX = `${value} #tBTC has been burned! 🔥\n ${txURL}`;
+        formatedTX = `🚨 ${value} #tBTC has been burned! 🔥\n ${txURL}`;
     } else {
         return;
     }
