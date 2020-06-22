@@ -1,4 +1,4 @@
 # tBTC Network Scanner
-Created by All in Bit.
-Website: https://tbtc.network/
-Twitter: https://twitter.com/tBTC_net
+Created by All in Bit. <br/>
+Website: https://tbtc.network/ <br/>
+Twitter: https://twitter.com/tBTC_net/ <br/>
