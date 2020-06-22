@@ -22,8 +22,7 @@ const twitterConfig = {
     consumer_key: process.env.CONSUMER_KEY,
     consumer_secret: process.env.CONSUMER_SECRET,
     access_token: process.env.ACCESS_TOKEN,
-    access_token_secret: process.env.ACCESS_TOKEN_SECRET,
-    timeout_ms: 1000
+    access_token_secret: process.env.ACCESS_TOKEN_SECRET
 }
 
 const web3 = new Web3(new Web3.providers.WebsocketProvider(providerURL, WSConfig));
