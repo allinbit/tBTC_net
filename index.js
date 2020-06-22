@@ -1,6 +1,6 @@
 const Web3 = require('web3');
 const Twit = require('twit');
-const dotenv = require('dotenv');
+const dotenv = require('dotenv').config();
 
 const tbtcABI = require('./tbtc-abi.json');
 const tbtcAddress = '0x1bBE271d15Bb64dF0bc6CD28Df9Ff322F2eBD847';
@@ -8,7 +8,6 @@ const tbtcAddress = '0x1bBE271d15Bb64dF0bc6CD28Df9Ff322F2eBD847';
 const address0 = '0x0000000000000000000000000000000000000000';
 const explorerURL = 'https://etherscan.io/tx/';
 
-dotenv.config();
 const providerURL = `wss://mainnet.infura.io/ws/v3/${process.env.INFURA_ID}`;
 
 const WSConfig = {
